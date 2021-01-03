@@ -1,5 +1,5 @@
 {
-  description = "Firefox nightly build.";
+  description = "Firefox nightly Nix flake.";
 
   inputs = {
     gecko-dev = {
