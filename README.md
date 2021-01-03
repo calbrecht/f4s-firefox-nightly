@@ -11,14 +11,16 @@ Experimental! Expect it not to build, although it does probably.
 
 ## Usage
 
+hahah, `zsh: bad pattern: ./#firefox-wayland-nightly` or `unsetopt extended_glob`
+
 ```shell
-nix shell 'github:calbrecht/firefox-nightly-flake/86.0a1-20210103092941' --command firefox
+nix shell github:calbrecht/firefox-nightly-flake/86.0a1-20210103092941 --command firefox
 ```
 or to run `firefox-nightly` (defaultApp)
 ```shell
-nix run 'github:calbrecht/firefox-nightly-flake'
+nix run github:calbrecht/firefox-nightly-flake
 ```
 or to run `firefox-wayland-nightly`
 ```shell
-nix run 'github:calbrecht/firefox-nightly-flake#firefox-wayland-nightly'
+nix run github:calbrecht/firefox-nightly-flake#firefox-wayland-nightly
 ```
