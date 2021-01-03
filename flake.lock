@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "gecko-dev": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1609182900,
+        "narHash": "sha256-QJY9Mt9wCbLl7yd4VQik9IFFdKZeN/OYZU3s79z5YPo=",
+        "owner": "mozilla",
+        "repo": "gecko-dev",
+        "rev": "81fbdf7119fad8035274e3df409ca76572685bf3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mozilla",
+        "repo": "gecko-dev",
+        "rev": "81fbdf7119fad8035274e3df409ca76572685bf3",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1609618637,
+        "narHash": "sha256-t+PuU+/pDZAksy0dcWTzT1wr3aDyAGb3+zlUukLZ1qc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a460b167f4ef3646341a8dc59195e5bac945ea77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a460b167f4ef3646341a8dc59195e5bac945ea77",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "gecko-dev": "gecko-dev",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

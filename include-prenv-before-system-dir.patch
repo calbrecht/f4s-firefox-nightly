@@ -1,0 +1,11 @@
+diff -r cdd65df84242 toolkit/xre/nsXREDirProvider.cpp
+--- a/toolkit/xre/nsXREDirProvider.cpp	Fri Jan 01 01:50:52 2021 +0000
++++ b/toolkit/xre/nsXREDirProvider.cpp	Sun Jan 03 10:33:28 2021 +0100
+@@ -32,6 +32,7 @@
+ #include "nsArrayEnumerator.h"
+ #include "nsEnumeratorUtils.h"
+ #include "nsReadableUtils.h"
++#include "prenv.h"
+ 
+ #include "GeckoProfiler.h"
+ #include "SpecialSystemDirectory.h"
