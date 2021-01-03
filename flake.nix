@@ -91,5 +91,10 @@
       };
 
       defaultPackage."${system}" = firefox-nightly-unwrapped;
+
+      overlay = final: prev: {
+        inherit (self.packages."${system}")
+          firefox-nightly firefox-wayland-nightly firefox-nightly-unwrapped;
+      };
     };
 }
