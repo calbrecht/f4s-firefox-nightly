@@ -71,11 +71,11 @@
       packages."${system}" = {
         firefox-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
           version = ffversion;
-          pname = "firefox-nightly-${ffversion}";
+          pname = "firefox-nightly";
         };
         firefox-wayland-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
           version = ffversion;
-          pname = "firefox-wayland-nightly-${ffversion}";
+          pname = "firefox-wayland-nightly";
           forceWayland = true;
         };
         firefox-nightly-unwrapped =
