@@ -6,7 +6,7 @@
       url = github:mozilla/gecko-dev?rev=2fcab997046ba9e068c5391dc7d8848e121d84f8;
       flake = false;
     };
-    nixpkgs.url = github:nixos/nixpkgs?rev=a460b167f4ef3646341a8dc59195e5bac945ea77;
+    nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
   };
 
   outputs = { self, nixpkgs, gecko-dev }:
