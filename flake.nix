@@ -13,7 +13,9 @@
     let
       ffversion = "86.0a1-20210103092941";
 
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
+      system = "x86_64-linux";
+
+      pkgs = import nixpkgs { inherit system; };
 
       nss_version_prefix = "#define NSS_VERSION";
       nss_version = with pkgs.lib; with builtins; toString
@@ -51,18 +53,43 @@
           });
         };
     in
-    {
-      packages.x86_64-linux.firefox-nightly-unwrapped =
-        (pkgs.firefox-unwrapped.override overrides).overrideAttrs (old: rec {
-          inherit ffversion;
-          version = ffversion;
-          name = "firefox-nightly-unwrapped-${ffversion}";
-          src = gecko-dev;
-          patches = [
-            ./include-prenv-before-system-dir.patch
-          ] ++ (pkgs.lib.take 2 old.patches);
-        });
+    with self.packages."${system}"; {
 
-      defaultPackage.x86_64-linux = self.packages.x86_64-linux.firefox-nightly-unwrapped;
+      apps."${system}" = {
+        firefox-nightly = {
+          type = "app";
+          program = firefox-nightly + /bin/firefox;
+        };
+        firefox-wayland-nightly = {
+          type = "app";
+          program = firefox-wayland-nightly + /bin/firefox;
+        };
+      };
+
+      defaultApp."${system}" = self.apps."${system}".firefox-nightly;
+
+      packages."${system}" = {
+        firefox-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
+          version = ffversion;
+          pname = "firefox-nightly-${ffversion}";
+        };
+        firefox-wayland-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
+          version = ffversion;
+          pname = "firefox-wayland-nightly-${ffversion}";
+          forceWayland = true;
+        };
+        firefox-nightly-unwrapped =
+          (pkgs.firefox-unwrapped.override overrides).overrideAttrs (old: rec {
+            inherit ffversion;
+            version = ffversion;
+            name = "firefox-nightly-unwrapped-${ffversion}";
+            src = gecko-dev;
+            patches = [
+              ./include-prenv-before-system-dir.patch
+            ] ++ (pkgs.lib.take 2 old.patches);
+          });
+      };
+
+      defaultPackage."${system}" = firefox-nightly-unwrapped;
     };
 }
