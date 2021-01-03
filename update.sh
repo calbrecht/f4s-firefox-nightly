@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p curl jq nix-prefetch cacert --pure --keep NIX_PATH
+#!nix-shell -i bash -p cacert curl git jq nixFlakes --pure
 
 user_agent="Collect nightly Firefox revisions for mapping to github source archives (github.com/calbrecht)"
 buildhub_api_url=https://buildhub.moz.tools/api
@@ -51,8 +51,7 @@ test -s ${hourly_buildhub_json} || {
 
 read -d ¬ jq_sort <<¬¬
   unique_by(.hg_rev) |
-  sort_by(.version) |
-  reverse
+  sort_by(.version)
 ¬¬
 
 read -d ¬ jq_extract_from_buildhub <<¬¬
@@ -99,7 +98,7 @@ jq_files_differ ${tmp_github_json} ${state_github_json} && {
     echo Nothing changed from github.
 }
 
-read -d ¬ jq_find_sha <<'¬¬'
+read -d ¬ jq_git_rev <<'¬¬'
 .[0] as {$desc, $date} |
   ($date | $date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
 .[1][] | select(.desc == $desc and .date == $date) |
@@ -116,11 +115,10 @@ while read line ; do
     version=
     hg_rev=
     git_rev=
-    sha512=
 
     declare $(echo $line | jq --raw-output 'to_entries | .[] | [.key, .value] | join("=")')
 
-    test -z ${sha512} && {
+    test -z ${git_rev} && {
         changeset=${cache}/${hg_rev}.changeset.json
 
         test -s ${changeset} || {
@@ -128,24 +126,30 @@ while read line ; do
             curl -A "${user_agent}" "${hg_changeset_url}/${hg_rev}?style=json" -o ${changeset}
         }
 
-        test -z ${git_rev} && {
-            git_rev=$(jq --slurp --raw-output "${jq_find_sha}" \
-                         ${changeset} ${state_github_json}) || {
-                echo Unable to find git_rev, exiting. >&2
-                exit 1
-            }
-        }
-
-        sha512=$(nix-prefetch --hash-algo sha512 --verbose fetchFromGitHub \
-                              --owner mozilla --repo gecko-dev --rev ${git_rev}) || {
-            echo Unable to calculate sha512, exiting. >&2
+        git_rev=$(jq --slurp --raw-output "${jq_git_rev}" ${changeset} ${state_github_json}) || {
+            echo Unable to find git_rev, exiting. >&2
             exit 1
         }
     }
 
-    jq --null-input --arg version ${version} --arg hg_rev ${hg_rev} \
-       --arg git_rev ${git_rev} --arg sha512 ${sha512} '
-       {$version, $hg_rev, $git_rev, $sha512}
+    test -z $(git tag -l ${version}) && {
+        sed -i 's/\(gecko-dev?rev\).*;/\1='${git_rev}';/' flake.nix
+        sed -i 's/\(ffversion =\) ".*"/\1 "'${version}'"/' flake.nix
+
+        git add flake.nix >&2
+        nix flake update
+        git add flake.lock >&2
+
+        git commit --no-gpg-sign -m "nightly ${version}
+
+hg: ${hg_rev}
+git: ${git_rev}" >&2
+
+        git tag ${version} >&2
+    }
+
+    jq --null-input --arg version ${version} --arg hg_rev ${hg_rev} --arg git_rev ${git_rev} '
+       {$version, $hg_rev, $git_rev}
     '
 
 done 1> >(jq --slurp "${jq_sort}" > ${tmp_history_json}) \
