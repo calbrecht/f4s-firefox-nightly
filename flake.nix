@@ -3,7 +3,7 @@
 
   inputs = {
     gecko-dev = {
-      url = github:mozilla/gecko-dev?rev=2fcab997046ba9e068c5391dc7d8848e121d84f8;
+      url = github:mozilla/gecko-dev/2fcab997046ba9e068c5391dc7d8848e121d84f8;
       flake = false;
     };
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;

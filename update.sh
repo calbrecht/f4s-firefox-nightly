@@ -133,7 +133,7 @@ while read line ; do
     }
 
     test -z $(git tag -l ${version}) && {
-        sed -i 's/\(gecko-dev?rev\).*;/\1='${git_rev}';/' flake.nix
+        sed -i 's/\(gecko-dev\)\/.*;/\1\/'${git_rev}';/' flake.nix
         sed -i 's/\(ffversion =\) ".*"/\1 "'${version}'"/' flake.nix
 
         git add flake.nix >&2
