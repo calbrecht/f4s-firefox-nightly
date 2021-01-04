@@ -5,6 +5,8 @@ Experimental! Expect it not to build, although it does probably.
 
 ## Provides
 
+`overlay = firefox-nightly-unwrapped | firefox-wayland-nightly | firefox-nightly`
+
 `packages.x86_64-linux = firefox-nightly-unwrapped | firefox-wayland-nightly | firefox-nightly`
 
 `apps.x86_64-linux = firefox-wayland-nightly | firefox-nightly`
