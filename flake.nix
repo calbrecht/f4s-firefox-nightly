@@ -15,7 +15,7 @@
 
       system = "x86_64-linux";
 
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = nixpkgs.legacyPackages."${system}";
 
       nss_version_prefix = "#define NSS_VERSION";
       nss_version = with pkgs.lib; with builtins; toString
