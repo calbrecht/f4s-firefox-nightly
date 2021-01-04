@@ -140,7 +140,7 @@ while read line ; do
         nix flake update
         git add flake.lock >&2
 
-        git commit --no-gpg-sign -m "nightly ${version}
+        git commit -m "nightly ${version}
 
 hg: ${hg_rev}
 git: ${git_rev}" >&2
