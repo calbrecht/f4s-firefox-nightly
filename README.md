@@ -24,3 +24,7 @@ or to run `firefox-wayland-nightly`
 ```shell
 nix run github:calbrecht/firefox-nightly-flake#firefox-wayland-nightly
 ```
+or from `86.0a1-20210103213448` onward, also able to run the tagged apps
+```shell
+nix run github:calbrecht/firefox-nightly-flake/86.0a1-20210103213448#firefox-wayland-nightly
+```
