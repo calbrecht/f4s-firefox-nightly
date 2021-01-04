@@ -53,33 +53,36 @@
           });
         };
     in
-    with self.packages."${system}"; {
-
+    {
       apps."${system}" = {
         firefox-nightly = {
           type = "app";
-          program = firefox-nightly + /bin/firefox;
+          program = self.packages."${system}".firefox-nightly + /bin/firefox;
         };
         firefox-wayland-nightly = {
           type = "app";
-          program = firefox-wayland-nightly + /bin/firefox;
+          program = self.packages."${system}".firefox-wayland-nightly + /bin/firefox;
         };
       };
 
       defaultApp."${system}" = self.apps."${system}".firefox-nightly;
 
-      packages."${system}" = {
-        firefox-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
+      packages."${system}" = self.overlay self.packages."${system}" pkgs;
+
+      defaultPackage."${system}" = self.packages."${system}".firefox-nightly-unwrapped;
+
+      overlay = final: prev: {
+        firefox-nightly = prev.wrapFirefox final.firefox-nightly-unwrapped {
           version = ffversion;
           pname = "firefox-nightly";
         };
-        firefox-wayland-nightly = pkgs.wrapFirefox firefox-nightly-unwrapped {
+        firefox-wayland-nightly = prev.wrapFirefox final.firefox-nightly-unwrapped {
           version = ffversion;
           pname = "firefox-wayland-nightly";
           forceWayland = true;
         };
         firefox-nightly-unwrapped =
-          (pkgs.firefox-unwrapped.override overrides).overrideAttrs (old: rec {
+          (prev.firefox-unwrapped.override overrides).overrideAttrs (old: rec {
             inherit ffversion;
             version = ffversion;
             name = "firefox-nightly-unwrapped-${ffversion}";
@@ -88,13 +91,6 @@
               ./include-prenv-before-system-dir.patch
             ] ++ (pkgs.lib.take 2 old.patches);
           });
-      };
-
-      defaultPackage."${system}" = firefox-nightly-unwrapped;
-
-      overlay = final: prev: {
-        inherit (self.packages."${system}")
-          firefox-nightly firefox-wayland-nightly firefox-nightly-unwrapped;
       };
     };
 }
