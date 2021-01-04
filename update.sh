@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p cacert curl git jq nixFlakes --pure
+#!nix-shell -i bash -p cacert curl git gnupg jq nixFlakes --pure
 
 user_agent="Collect nightly Firefox revisions for mapping to github source archives (github.com/calbrecht)"
 buildhub_api_url=https://buildhub.moz.tools/api
