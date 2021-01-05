@@ -103,7 +103,7 @@ read -d ¬ jq_git_rev <<'¬¬'
 [.[0] as {$desc, $date} |
   ($date | $date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
 .[1][] | select(.desc == $desc and .date == $date) |
-  .sha][0]
+  .sha] | if length > 1 then debug else . end | .[0]
 ¬¬
 
 read -d ¬ jq_merge <<¬¬
@@ -127,6 +127,7 @@ while read line ; do
             curl -A "${user_agent}" "${hg_changeset_url}/${hg_rev}?style=json" -o ${changeset}
         }
 
+        echo Searching git_rev. >&2
         git_rev=$(jq --slurp --raw-output "${jq_git_rev}" ${changeset} ${state_github_json}) || {
             echo Unable to find git_rev, exiting. >&2
             exit 1
