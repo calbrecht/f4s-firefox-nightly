@@ -99,10 +99,11 @@ jq_files_differ ${tmp_github_json} ${state_github_json} && {
 }
 
 read -d ¬ jq_git_rev <<'¬¬'
-.[0] as {$desc, $date} |
+# TODO there are same commits with different parents. for now just take the first one
+[.[0] as {$desc, $date} |
   ($date | $date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
 .[1][] | select(.desc == $desc and .date == $date) |
-  .sha
+  .sha][0]
 ¬¬
 
 read -d ¬ jq_merge <<¬¬
@@ -137,7 +138,7 @@ while read line ; do
         sed -i 's/\(ffversion =\) ".*"/\1 "'${version}'"/' flake.nix
 
         git add flake.nix >&2
-        nix flake update
+        nix flake update --recreate-lock-file
         git add flake.lock >&2
 
         git commit -m "nightly ${version}
