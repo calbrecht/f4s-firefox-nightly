@@ -3,7 +3,7 @@
 
   inputs = {
     gecko-dev = {
-      url = github:mozilla/gecko-dev/f4fc0c88ed7240070f7ae60e3c3e20aab4a098f6;
+      url = github:mozilla/gecko-dev/9570cfcaf724d14b2df91b3f0efdba23ed38a0c5;
       flake = false;
     };
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
@@ -11,7 +11,7 @@
 
   outputs = { self, nixpkgs, gecko-dev }:
     let
-      ffversion = "86.0a1-20210105160452";
+      ffversion = "86.0a1-20210105215658";
 
       system = "x86_64-linux";
 
