@@ -75,7 +75,7 @@ jq_files_differ ${tmp_buildhub_json} ${state_buildhub_json} && {
 
 test -s ${hourly_github_json} || {
     echo Fetching hourly github ${hourly}.
-    curl -H "Accept: application/vnd.github.v3+json" ${github_commits_url} \
+    curl -H "Accept: application/vnd.github.v3+json" "${github_commits_url}?per_page=100" \
          -o ${hourly_github_json}
 }
 
@@ -103,7 +103,10 @@ read -d ¬ jq_git_rev <<'¬¬'
 [.[0] as {$desc, $date} |
   ($date | $date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
 .[1][] | select(.desc == $desc and .date == $date) |
-  .sha] | if length > 1 then debug else . end | .[0]
+  .sha] |
+  if length > 1 then debug else . end |
+  .[0] |
+  if type == "null" then error("empty") else . end
 ¬¬
 
 read -d ¬ jq_merge <<¬¬
