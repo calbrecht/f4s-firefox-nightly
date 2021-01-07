@@ -54,31 +54,14 @@
         };
     in
     {
-      apps."${system}" = {
-        firefox-nightly = {
-          type = "app";
-          program = self.packages."${system}".firefox-nightly + /bin/firefox;
-        };
-        firefox-wayland-nightly = {
-          type = "app";
-          program = self.packages."${system}".firefox-wayland-nightly + /bin/firefox;
-        };
-      };
-
-      defaultApp."${system}" = self.apps."${system}".firefox-nightly;
-
-      packages."${system}" = self.overlay self.packages."${system}" pkgs;
-
-      defaultPackage."${system}" = self.packages."${system}".firefox-nightly-unwrapped;
+      legacyPackages."${system}" = self.overlay self.legacyPackages."${system}" pkgs;
 
       overlay = final: prev: {
         firefox-nightly = prev.wrapFirefox final.firefox-nightly-unwrapped {
           version = ffversion;
-          pname = "firefox-nightly";
         };
         firefox-wayland-nightly = prev.wrapFirefox final.firefox-nightly-unwrapped {
           version = ffversion;
-          pname = "firefox-wayland-nightly";
           forceWayland = true;
         };
         firefox-nightly-unwrapped =
