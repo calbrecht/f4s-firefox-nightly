@@ -43,13 +43,28 @@
               sha256 = "sha256-RDqe97smZ4QPFlV4J8eV1ZHOlPKMzUow6/oNuIWgZ90=";
             };
 
+            nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.pythonPackages.cython ];
+
             cargoDeps = old.cargoDeps.overrideAttrs (pkgs.lib.const {
               name = "${name}-vendor.tar.gz";
               inherit src;
               outputHash = "sha256-MdrXJ/nGxJ1oOHolc599Uee1EWn1iybUCfnc98BfjiE=";
             });
 
-            doCheck = false;
+            checkFlags = [
+              # https://github.com/NixOS/nixpkgs/pull/65303
+              "--skip test_bitfield"
+              "--skip test_expand"
+              "--skip test_expand"
+              "--skip test_expand_default_features"
+              "--skip test_expand_dep"
+              "--skip test_expand_dep_v2"
+              "--skip test_expand_features"
+              "--skip test_expand_no_default_features"
+              "--skip lib_default_uses_debug_build"
+              "--skip lib_explicit_debug_build"
+              "--skip lib_explicit_release_build"
+            ];
           });
         };
     in
