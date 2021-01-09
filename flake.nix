@@ -88,6 +88,7 @@
             patches = [
               ./include-prenv-before-system-dir.patch
             ] ++ (pkgs.lib.take 2 old.patches);
+            debugBuild = true;
           });
       };
     };
