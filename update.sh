@@ -132,7 +132,6 @@ while read line ; do
         }
 
         echo Searching git_rev for hg: ${hg_rev}. >&2
-        set -x
         git_rev=$(jq --slurp --raw-output "${jq_git_rev}" ${changeset} ${state_github_json}) || {
             echo Unable to find git_rev, exiting. >&2
             exit 1
