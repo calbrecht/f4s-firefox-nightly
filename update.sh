@@ -101,6 +101,7 @@ jq_files_differ ${tmp_github_json} ${state_github_json} && {
 read -d ¬ jq_git_rev <<'¬¬'
 # TODO there are same commits with different parents. for now just take the first one
 [.[0] as {$desc, $date} |
+  ($desc | rtrimstr("\\n")) as $desc |
   ($date | $date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
 .[1][] | select(.desc == $desc and .date == $date) |
   .sha] |
@@ -130,7 +131,8 @@ while read line ; do
             curl -A "${user_agent}" "${hg_changeset_url}/${hg_rev}?style=json" -o ${changeset}
         }
 
-        echo Searching git_rev. >&2
+        echo Searching git_rev for hg: ${hg_rev}. >&2
+        set -x
         git_rev=$(jq --slurp --raw-output "${jq_git_rev}" ${changeset} ${state_github_json}) || {
             echo Unable to find git_rev, exiting. >&2
             exit 1
