@@ -1,0 +1,26 @@
+name: Build new Firefox nightly release info and update repo.
+
+on:
+  schedule:
+  - cron: "55 * * * *"
+
+jobs:
+  auto-update:
+
+    runs-on: ubuntu-latest
+    env:
+      git_user_name: github-actions
+      git_user_mail: github-actions@github.com
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # Nix Flakes doesn't work on shallow clones
+        fetch-depth: 0
+        repository: calbrecht/firefox-nightly-flake
+        ref: try-github-actions
+    - uses: cachix/install-nix-action@v12
+      with:
+        install_url: https://github.com/numtide/nix-flakes-installer/releases/download/nix-2.4pre20201221_9fab14a/install
+        extra_nix_config: |
+          experimental-features = nix-command flakes
+    - run: nix run .github#auto-update
