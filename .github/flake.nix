@@ -95,7 +95,7 @@
 
           test -z $(${pkgs.git}/bin/git tag -l $version) || {
             : Version $version exists, exiting.
-            exit 1
+            exit 0
           }
 
           : Matching $hg_rev to git revision.
@@ -112,7 +112,7 @@
 
           test -z $(${pkgs.git}/bin/git tag -l $version) || {
             : Version $version exists, exiting.
-            exit 1
+            exit 0
           }
 
           sed -i 's/\(gecko-dev\)\/.*;/\1\/'$git_rev';/' flake.nix
@@ -130,7 +130,7 @@
 
           test -z $(${pkgs.git}/bin/git tag -l $version) || {
             : Version $version exists, exiting.
-            exit 1
+            exit 0
           }
 
           ${pkgs.git}/bin/git config user.name "$user_name"
