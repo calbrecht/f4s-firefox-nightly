@@ -93,8 +93,6 @@
           declare $(${self.packages."${system}".fetch-buildhub}/bin/fetch-buildhub | \
             ${pkgs.jq}/bin/jq --raw-output '${jq_to_declare}')
 
-          version=try-github-actions-$version
-
           test -z $(${pkgs.git}/bin/git tag -l $version) || {
             : Version $version exists, exiting.
             exit 1
