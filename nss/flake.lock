@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "gecko-dev": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1610613060,
-        "narHash": "sha256-QsmG95n5wHAZ6fCtYQ9ENali9DEgVGq7rg/SPYAv8II=",
-        "owner": "mozilla",
-        "repo": "gecko-dev",
-        "rev": "2a24205479519e70c0574929f45730d285141584",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mozilla",
-        "repo": "gecko-dev",
-        "rev": "2a24205479519e70c0574929f45730d285141584",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1610219734,
@@ -31,23 +14,6 @@
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
-      }
-    },
-    "nss": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nss-dev": "nss-dev"
-      },
-      "locked": {
-        "narHash": "sha256-hSSYoUD2T9r3U/d8ePWjNcv9ZTSTVH7sSG6P+Bl8ybw=",
-        "path": "./nss",
-        "type": "path"
-      },
-      "original": {
-        "path": "./nss",
-        "type": "path"
       }
     },
     "nss-dev": {
@@ -69,9 +35,8 @@
     },
     "root": {
       "inputs": {
-        "gecko-dev": "gecko-dev",
         "nixpkgs": "nixpkgs",
-        "nss": "nss"
+        "nss-dev": "nss-dev"
       }
     }
   },
