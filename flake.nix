@@ -6,11 +6,8 @@
       url = github:mozilla/gecko-dev/361d3e3a61929bb3fc4f088adf97649e38900f00;
       flake = false;
     };
-    nss = {
-      url = github:calbrecht/f4s-firefox-nightly?dir=nss;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
+    nss = { url = github:calbrecht/f4s-nss; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixpkgs = { url = github:nixos/nixpkgs/nixos-unstable; };
   };
 
   outputs = { self, nixpkgs, gecko-dev, nss }:
