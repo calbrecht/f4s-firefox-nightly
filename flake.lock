@@ -41,13 +41,19 @@
         "nss-dev": "nss-dev"
       },
       "locked": {
-        "narHash": "sha256-hSSYoUD2T9r3U/d8ePWjNcv9ZTSTVH7sSG6P+Bl8ybw=",
-        "path": "./nss",
-        "type": "path"
+        "dir": "nss",
+        "lastModified": 1610799583,
+        "narHash": "sha256-u67TZ/yfSzClSQ9SJBwKq0213w9yzt2L4iMc8ja4h5Q=",
+        "owner": "calbrecht",
+        "repo": "firefox-nightly-flake",
+        "rev": "7078dbe76b6ca942ce200af9e903fd1905c60b95",
+        "type": "github"
       },
       "original": {
-        "path": "./nss",
-        "type": "path"
+        "dir": "nss",
+        "owner": "calbrecht",
+        "repo": "firefox-nightly-flake",
+        "type": "github"
       }
     },
     "nss-dev": {

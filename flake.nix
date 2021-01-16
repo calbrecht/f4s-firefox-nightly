@@ -7,7 +7,7 @@
       flake = false;
     };
     nss = {
-      url = path:./nss;
+      url = github:calbrecht/firefox-nightly-flake?dir=nss;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
