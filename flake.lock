@@ -42,17 +42,17 @@
       },
       "locked": {
         "dir": "nss",
-        "lastModified": 1610799583,
-        "narHash": "sha256-u67TZ/yfSzClSQ9SJBwKq0213w9yzt2L4iMc8ja4h5Q=",
+        "lastModified": 1610829769,
+        "narHash": "sha256-4AK3OhxBb30wiGcGm0WJovfdhqD60Qv4HoQ9rYpBcuY=",
         "owner": "calbrecht",
-        "repo": "firefox-nightly-flake",
-        "rev": "7078dbe76b6ca942ce200af9e903fd1905c60b95",
+        "repo": "f4s-firefox-nightly",
+        "rev": "96d4c85f5c1ed5d85117493fd19357d1a964b7f2",
         "type": "github"
       },
       "original": {
         "dir": "nss",
         "owner": "calbrecht",
-        "repo": "firefox-nightly-flake",
+        "repo": "f4s-firefox-nightly",
         "type": "github"
       }
     },

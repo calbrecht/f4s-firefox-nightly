@@ -16,7 +16,7 @@ jobs:
       with:
         # Nix Flakes doesn't work on shallow clones
         fetch-depth: 0
-        repository: calbrecht/firefox-nightly-flake
+        repository: calbrecht/f4s-firefox-nightly
         ref: main
     - uses: cachix/install-nix-action@v12
       with:

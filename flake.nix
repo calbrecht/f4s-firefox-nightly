@@ -1,5 +1,5 @@
 {
-  description = "Firefox nightly Nix flake.";
+  description = "Nix flake for Firefox nightly.";
 
   inputs = {
     gecko-dev = {
@@ -7,7 +7,7 @@
       flake = false;
     };
     nss = {
-      url = github:calbrecht/firefox-nightly-flake?dir=nss;
+      url = github:calbrecht/f4s-firefox-nightly?dir=nss;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
