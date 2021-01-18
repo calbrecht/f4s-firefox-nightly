@@ -3,27 +3,27 @@
     "gecko-dev": {
       "flake": false,
       "locked": {
-        "lastModified": 1610837748,
-        "narHash": "sha256-ABsP6XUd7KjgltAU9KfPYXxMW8cW/EXjD/OSsfHuAU4=",
+        "lastModified": 1610894319,
+        "narHash": "sha256-jxF1S4xCt74PJhAEN9qaYp89vwvhCogbReHVACpm7/I=",
         "owner": "mozilla",
         "repo": "gecko-dev",
-        "rev": "6feef3dcfce7e5c922093edde758330857ce2bb3",
+        "rev": "dac45cc7020dfddbcc937827810dd11550c07dc3",
         "type": "github"
       },
       "original": {
         "owner": "mozilla",
         "repo": "gecko-dev",
-        "rev": "6feef3dcfce7e5c922093edde758330857ce2bb3",
+        "rev": "dac45cc7020dfddbcc937827810dd11550c07dc3",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1610749131,
-        "narHash": "sha256-B+ZtXdVTkbWb7xUmFRuDjrdtcWiCWKCE3nlFVNdvwRE=",
+        "lastModified": 1610842533,
+        "narHash": "sha256-6hW8CML8RnNrRJMv7E56rXAhsCNgUM97HIVSqWxnO64=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b3616bd96400ce0252c241d76fcafb64389defc6",
+        "rev": "68398d2dd50efc2d878bf0f83bbc8bc323b6b0e0",
         "type": "github"
       },
       "original": {
