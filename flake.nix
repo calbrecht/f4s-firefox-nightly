@@ -3,7 +3,7 @@
 
   inputs = {
     gecko-dev = {
-      url = github:mozilla/gecko-dev/f018480dfed4fc583703a5770a6db9ab9dc0fb99;
+      url = github:mozilla/gecko-dev/15f6b60e343c536305a5aa81e2020d7b87f93158;
       flake = false;
     };
     nss = { url = github:calbrecht/f4s-nss; inputs.nixpkgs.follows = "nixpkgs"; };
@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, gecko-dev, nss }:
     let
-      ffversion = "90.0a1-20210422093115";
+      ffversion = "90.0a1-20210422213157";
 
       system = "x86_64-linux";
 
