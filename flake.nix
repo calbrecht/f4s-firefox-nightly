@@ -23,13 +23,13 @@
 
         rust-cbindgen = pkgs.rust-cbindgen.overrideAttrs (old: rec {
           name = "rust-cbindgen-${version}";
-          version = "0.16.0";
+          version = "0.19.0";
 
           src = pkgs.fetchFromGitHub {
             owner = "eqrion";
             repo = "cbindgen";
             rev = "v${version}";
-            sha256 = "sha256-RDqe97smZ4QPFlV4J8eV1ZHOlPKMzUow6/oNuIWgZ90=";
+            sha256 = "sha256-AGTwjwwHFmQOoCFg7bIu2fcxEYSzeGhmbaHSkulsoxw=";
           };
 
           nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.pythonPackages.cython ];
@@ -37,7 +37,7 @@
           cargoDeps = old.cargoDeps.overrideAttrs (pkgs.lib.const {
             name = "${name}-vendor.tar.gz";
             inherit src;
-            outputHash = "sha256-MdrXJ/nGxJ1oOHolc599Uee1EWn1iybUCfnc98BfjiE=";
+            outputHash = "sha256-qOaJVBmeEFdNbgYTW9rtHfwzua+6tSHmDCMeG3EE3GM=";
           });
 
           checkFlags = [

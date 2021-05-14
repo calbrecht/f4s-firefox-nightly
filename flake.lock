@@ -41,11 +41,11 @@
         "nss-dev": "nss-dev"
       },
       "locked": {
-        "lastModified": 1611692106,
-        "narHash": "sha256-cy3YcJzG7NUKMQXbq58n66e/php/TZg3s8GtOob+wlo=",
+        "lastModified": 1620978558,
+        "narHash": "sha256-kJ+Y7pfLupLiQHZSaA7Pgb8VGgw71Y7KRLIHiWf4ugk=",
         "owner": "calbrecht",
         "repo": "f4s-nss",
-        "rev": "0b03e0e95adee93ed738daee92947cace0d38836",
+        "rev": "a19059b91aa0733f86b832570c8878cd42521f2f",
         "type": "github"
       },
       "original": {
@@ -57,17 +57,17 @@
     "nss-dev": {
       "flake": false,
       "locked": {
-        "lastModified": 1611335308,
-        "narHash": "sha256-xats4lyhtvPLnQrVVW1lIo/bj3DT4O2jv1BmXNOmnrY=",
+        "lastModified": 1620286439,
+        "narHash": "sha256-7vqJQJzUsmYziFMdJN3Z2LMazGIg8UNHSmrlbJg4wOI=",
         "owner": "nss-dev",
         "repo": "nss",
-        "rev": "8f01a1b06b0c300922941fbbace1ffc9e9bfbaca",
+        "rev": "70e79341b583ff45a58bf3832d76b6c8782a969b",
         "type": "github"
       },
       "original": {
         "owner": "nss-dev",
-        "ref": "NSS_3_61_RTM",
         "repo": "nss",
+        "rev": "70e79341b583ff45a58bf3832d76b6c8782a969b",
         "type": "github"
       }
     },
