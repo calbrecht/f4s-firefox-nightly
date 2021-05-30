@@ -76,7 +76,11 @@
             src = gecko-dev;
             patches = [
               ./include-prenv-before-system-dir.patch
-            ] ++ (pkgs.lib.take 2 old.patches);
+            ]
+            ++ (pkgs.lib.take 1 old.patches)
+            ++ [
+              ./no-buildconfig-ffx90.patch
+            ];
             debugBuild = true;
             meta = old.meta // {
               mainProgram = "firefox";
