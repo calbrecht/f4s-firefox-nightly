@@ -3,17 +3,17 @@
     "gecko-dev": {
       "flake": false,
       "locked": {
-        "lastModified": 1627401292,
-        "narHash": "sha256-ny/h/eQw78oT//iH2TL4KnoTwtWoHmJh0AIhsRtcCrE=",
+        "lastModified": 1627430560,
+        "narHash": "sha256-X7Xl0AYhVUmG6idXidFkoE07jhpTLgFbMbSDM3tDE/I=",
         "owner": "mozilla",
         "repo": "gecko-dev",
-        "rev": "a9db89754fb507254cb8422e5a00af7c10d98264",
+        "rev": "cfc40681e13089f92fb3f5f67d5d527fb04d9505",
         "type": "github"
       },
       "original": {
         "owner": "mozilla",
         "repo": "gecko-dev",
-        "rev": "a9db89754fb507254cb8422e5a00af7c10d98264",
+        "rev": "cfc40681e13089f92fb3f5f67d5d527fb04d9505",
         "type": "github"
       }
     },
