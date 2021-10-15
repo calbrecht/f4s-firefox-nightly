@@ -6,11 +6,12 @@
       url = github:mozilla/gecko-dev/13a484992f7cae52f24851c73ff4d19de119d0c0;
       flake = false;
     };
-    nss = { url = github:calbrecht/f4s-nss; inputs.nixpkgs.follows = "nixpkgs"; };
+    nss-dev = { url = github:calbrecht/f4s-nss; inputs.nixpkgs.follows = "nixpkgs"; };
+    nspr-dev = { url = github:calbrecht/f4s-nspr; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs = { url = github:nixos/nixpkgs/nixos-unstable; };
   };
 
-  outputs = { self, nixpkgs, gecko-dev, nss }:
+  outputs = { self, nixpkgs, gecko-dev, nss-dev, nspr-dev }:
     let
       ffversion = "95.0a1-20211015095004";
 
@@ -19,7 +20,8 @@
       pkgs = nixpkgs.legacyPackages."${system}";
 
       overrides = {
-        nss = nss.legacyPackages."${system}".nss;
+        nss = nss-dev.legacyPackages."${system}".nss-dev;
+        nspr = nspr-dev.legacyPackages."${system}".nspr-dev;
 
         rust-cbindgen = pkgs.rust-cbindgen.overrideAttrs (old: rec {
           name = "rust-cbindgen-${version}";
