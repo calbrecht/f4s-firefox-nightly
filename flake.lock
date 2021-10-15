@@ -33,19 +33,52 @@
         "type": "github"
       }
     },
-    "nss": {
+    "nspr-dev": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nss-dev": "nss-dev"
+        "nspr-dev-src": "nspr-dev-src"
       },
       "locked": {
-        "lastModified": 1622368082,
-        "narHash": "sha256-q0KzoofPXHXb7bTuOYTzV5z2f/C1bBolJD7IR7k5fZ4=",
+        "lastModified": 1634326191,
+        "narHash": "sha256-1j6rW1AKUPpBPKJP8z7gpNVdVu2cXh/K2HvAmae99zc=",
+        "owner": "calbrecht",
+        "repo": "f4s-nspr",
+        "rev": "bc5ba0cc055b284fb6467daefffdd8556f8d6815",
+        "type": "github"
+      },
+      "original": {
+        "owner": "calbrecht",
+        "repo": "f4s-nspr",
+        "type": "github"
+      }
+    },
+    "nspr-dev-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-pl+JYhaIMxFG7Lpe2yaLhihczNwZG0fU8W/Ita6ZQDg=",
+        "type": "tarball",
+        "url": "https://hg.mozilla.org/projects/nspr/archive/NSPR_4_32_RTM.zip"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://hg.mozilla.org/projects/nspr/archive/NSPR_4_32_RTM.zip"
+      }
+    },
+    "nss-dev": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nss-dev-src": "nss-dev-src"
+      },
+      "locked": {
+        "lastModified": 1634326226,
+        "narHash": "sha256-0lnlmBtcJthGIyfoGg5ysk/L2Id+E1z1wMpZnnNL6bI=",
         "owner": "calbrecht",
         "repo": "f4s-nss",
-        "rev": "a04a0847c31ff65dd84edc491859b63bdf969caf",
+        "rev": "4dbeca3b99aaa9d6a660e99452f623ad5a3dac55",
         "type": "github"
       },
       "original": {
@@ -54,19 +87,19 @@
         "type": "github"
       }
     },
-    "nss-dev": {
+    "nss-dev-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1622195443,
-        "narHash": "sha256-2IT+KYzo+iisu//wNnwuTXm193c+16UcWuqCR82G5+M=",
+        "lastModified": 1633005674,
+        "narHash": "sha256-I5YmuyKYMJr+M8mt3+IYQe6VLm+UfxX438uQdAna89Q=",
         "owner": "nss-dev",
         "repo": "nss",
-        "rev": "ecc7deaa8d3216c7ba8b9a397625ce1dbc31fefc",
+        "rev": "87c5c2f0be413bf7b79eafd84d56d969827bd804",
         "type": "github"
       },
       "original": {
         "owner": "nss-dev",
-        "ref": "NSS_3_66_RTM",
+        "ref": "NSS_3_71_RTM",
         "repo": "nss",
         "type": "github"
       }
@@ -75,7 +108,8 @@
       "inputs": {
         "gecko-dev": "gecko-dev",
         "nixpkgs": "nixpkgs",
-        "nss": "nss"
+        "nspr-dev": "nspr-dev",
+        "nss-dev": "nss-dev"
       }
     }
   },
