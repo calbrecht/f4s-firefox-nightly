@@ -118,7 +118,7 @@
           sed -i 's/\(gecko-dev\)\/.*;/\1\/'$git_rev';/' flake.nix
           sed -i 's/\(ffversion =\) ".*"/\1 "'$version'"/' flake.nix
 
-          ${pkgs.nixFlakes}/bin/nix flake update --recreate-lock-file
+          ${pkgs.nixFlakes}/bin/nix flake update
         '';
 
         commit-and-push = pkgs.writeScriptBin "commit-and-push" ''
