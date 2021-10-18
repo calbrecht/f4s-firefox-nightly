@@ -159,6 +159,14 @@
           . ${self.packages."${system}".commit-and-push}/bin/commit-and-push || \
           true
         '';
+
+        build-firefox-wayland-nightly = pkgs.writeScriptBin "build-firefox-wayland-nightly"
+        ''
+          #!${pkgs.stdenv.shell}
+          set -xeu
+
+          ${pkgs.nixFlakes}/bin/nix build ./#firefox-wayland-nightly
+        '';
       };
     };
 }

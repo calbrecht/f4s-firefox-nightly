@@ -55,6 +55,7 @@
             "--skip lib_default_uses_debug_build"
             "--skip lib_explicit_debug_build"
             "--skip lib_explicit_release_build"
+            "--skip bin_explicit_release_build"
           ];
         });
       };
