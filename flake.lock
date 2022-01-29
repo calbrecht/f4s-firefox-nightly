@@ -19,18 +19,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1634436779,
-        "narHash": "sha256-D/nrXTWpe1bPIjFy85sgiLHYqu+AeaC6v5/+KlA9PRg=",
-        "owner": "nixos",
+        "lastModified": 1643464727,
+        "narHash": "sha256-Ju/hf2cpUtbPKrXPEk3O5FqlcWwOWq5LAyWoeV879J4=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9aeeb7574fb784eaf6395f4400705b5f619e6cc3",
+        "rev": "300cccf211aff894130d32669097e6fb0c018374",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nspr-dev": {
@@ -41,11 +39,11 @@
         "nspr-dev-src": "nspr-dev-src"
       },
       "locked": {
-        "lastModified": 1634326191,
-        "narHash": "sha256-1j6rW1AKUPpBPKJP8z7gpNVdVu2cXh/K2HvAmae99zc=",
+        "lastModified": 1643465818,
+        "narHash": "sha256-QUyKiHT+c5FjmdJSA6cAyusNhakWiqDyZNZahKpBHWw=",
         "owner": "calbrecht",
         "repo": "f4s-nspr",
-        "rev": "bc5ba0cc055b284fb6467daefffdd8556f8d6815",
+        "rev": "3e76d544a03efd9355ad49bc005fdedcecdce05e",
         "type": "github"
       },
       "original": {
@@ -74,11 +72,11 @@
         "nss-dev-src": "nss-dev-src"
       },
       "locked": {
-        "lastModified": 1634633367,
-        "narHash": "sha256-jWwTA8FKxBljDpfRBc/ko/4hHLb/wOy/wSOqozAIH9w=",
+        "lastModified": 1643465765,
+        "narHash": "sha256-rl7knAPvAsuo7N3QjMO1jErEuKhjTt1MY+v7JBGKeTE=",
         "owner": "calbrecht",
         "repo": "f4s-nss",
-        "rev": "12cf5e631f8c1c049da26f18899b5660b3e1f902",
+        "rev": "e996153ba6ca802d3f576d7872d0bf0ff4a1062c",
         "type": "github"
       },
       "original": {

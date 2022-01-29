@@ -6,9 +6,14 @@
       url = github:mozilla/gecko-dev/36aa22c7ea92bd3cf7910774004fff7e63341cf5;
       flake = false;
     };
-    nss-dev = { url = github:calbrecht/f4s-nss; inputs.nixpkgs.follows = "nixpkgs"; };
-    nspr-dev = { url = github:calbrecht/f4s-nspr; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixpkgs = { url = github:nixos/nixpkgs/nixos-unstable; };
+    nss-dev = {
+      url = github:calbrecht/f4s-nss;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nspr-dev = {
+      url = github:calbrecht/f4s-nspr;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, gecko-dev, nss-dev, nspr-dev }:
