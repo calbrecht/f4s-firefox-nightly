@@ -2,18 +2,15 @@
   description = "Nix flake for Firefox nightly.";
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/master;
     gecko-dev = {
       url = github:mozilla/gecko-dev/f837285619240f496ced176161851c97be8f2eb5;
       flake = false;
     };
     nss-dev = {
       url = github:calbrecht/f4s-nss;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nspr-dev = {
       url = github:calbrecht/f4s-nspr;
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
