@@ -41,11 +41,11 @@
         "nspr-dev-src": "nspr-dev-src"
       },
       "locked": {
-        "lastModified": 1643465818,
-        "narHash": "sha256-QUyKiHT+c5FjmdJSA6cAyusNhakWiqDyZNZahKpBHWw=",
+        "lastModified": 1645267535,
+        "narHash": "sha256-b/a97mevsYbsxf0eJLex3mRJ4xIm2zERPDzsyVt+ECM=",
         "owner": "calbrecht",
         "repo": "f4s-nspr",
-        "rev": "3e76d544a03efd9355ad49bc005fdedcecdce05e",
+        "rev": "0a7cfc53fe9c3bfe4490c48ef8d14f6ff4a01d05",
         "type": "github"
       },
       "original": {
@@ -74,11 +74,11 @@
         "nss-dev-src": "nss-dev-src"
       },
       "locked": {
-        "lastModified": 1643465765,
-        "narHash": "sha256-rl7knAPvAsuo7N3QjMO1jErEuKhjTt1MY+v7JBGKeTE=",
+        "lastModified": 1645267550,
+        "narHash": "sha256-Bm5SKcX9CEPBY5UGh7XywQsqG0YZw++lOZizF8AvasI=",
         "owner": "calbrecht",
         "repo": "f4s-nss",
-        "rev": "e996153ba6ca802d3f576d7872d0bf0ff4a1062c",
+        "rev": "a90415a9b366e15733858077727b626c992e6390",
         "type": "github"
       },
       "original": {
