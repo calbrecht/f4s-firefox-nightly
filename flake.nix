@@ -1,16 +1,22 @@
 {
   description = "Nix flake for Firefox nightly.";
 
+  nixConfig = {
+    flake-registry = https://github.com/calbrecht/f4s-registry/raw/main/flake-registry.json;
+  };
+
   inputs = {
     gecko-dev = {
       url = github:mozilla/gecko-dev/f837285619240f496ced176161851c97be8f2eb5;
       flake = false;
     };
     nss-dev = {
-      url = github:calbrecht/f4s-nss;
+      url = flake:f4s-nss;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nspr-dev = {
-      url = github:calbrecht/f4s-nspr;
+      url = flake:f4s-nspr;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
