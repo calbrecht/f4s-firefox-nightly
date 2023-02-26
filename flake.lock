@@ -19,18 +19,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1645267060,
-        "narHash": "sha256-TQ1N3f84yXvNpvhuAyJYWm9waDM7+9raG9gFKpbFEAA=",
-        "owner": "NixOS",
+        "lastModified": 1677398225,
+        "narHash": "sha256-10Wpb5B3XZSqrguCw13KMZp+/V+k2mpZBq8t7LlJrng=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7c6759c27e7adae4387743c1bdec99d84b9a4d54",
+        "rev": "5d1eee6cf041df206f29e8e03ab5844dcf2dd111",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nspr-dev": {
@@ -49,9 +47,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "calbrecht",
-        "repo": "f4s-nspr",
-        "type": "github"
+        "id": "f4s-nspr",
+        "type": "indirect"
       }
     },
     "nspr-dev-src": {
@@ -82,9 +79,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "calbrecht",
-        "repo": "f4s-nss",
-        "type": "github"
+        "id": "f4s-nss",
+        "type": "indirect"
       }
     },
     "nss-dev-src": {
