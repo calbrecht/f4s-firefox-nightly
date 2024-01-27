@@ -13,7 +13,6 @@
       "original": {
         "owner": "mozilla",
         "repo": "gecko-dev",
-        "rev": "b75080bb8b11844d18cb5f9ac6e68a866ef8e243",
         "type": "github"
       }
     },
