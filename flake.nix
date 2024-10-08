@@ -7,7 +7,7 @@
 
   inputs = {
     gecko-dev = {
-      url = github:mozilla/gecko-dev/488d81581a9142d532bf814efa60564ff11599ca;
+      url = github:mozilla/gecko-dev/7a85a111b5f42cdc07f438e36f9597c4c6dc1d48;
       flake = false;
     };
     nss-dev = {
@@ -22,7 +22,7 @@
 
   outputs = { self, nixpkgs, gecko-dev, nss-dev, nspr-dev }:
     let
-      ffversion = "133.0a1-20241008091832";
+      ffversion = "133.0a1-20241008165730";
 
       system = "x86_64-linux";
 
