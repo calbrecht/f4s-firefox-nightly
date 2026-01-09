@@ -22,7 +22,7 @@
 
   outputs = { self, nixpkgs, gecko-dev, nss-dev, nspr-dev }:
     let
-      ffversion = "148.0a1-20260108211852";
+      ffversion = "148.0a1-20260109095429";
 
       system = "x86_64-linux";
 
