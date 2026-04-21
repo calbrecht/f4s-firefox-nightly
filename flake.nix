@@ -1,26 +1,22 @@
 {
   description = "Nix flake for Firefox nightly.";
 
-  nixConfig = {
-    flake-registry = https://github.com/calbrecht/f4s-registry/raw/main/flake-registry.json;
-  };
-
   inputs = {
-    gecko-dev = {
-      url = github:mozilla/gecko-dev/;
+    mozilla-firefox = {
+      url = "github:mozilla-firefox/firefox/main";
       flake = false;
     };
     nss-dev = {
-      url = flake:f4s-nss;
+      url = "github:calbrecht/f4s-nss";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nspr-dev = {
-      url = flake:f4s-nspr;
+      url = "github:calbrecht/f4s-nspr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, gecko-dev, nss-dev, nspr-dev }:
+  outputs = { self, nixpkgs, mozilla-firefox, nss-dev, nspr-dev }:
     let
       ffversion = "152.0a1-20260421085657";
 
@@ -85,7 +81,7 @@
             inherit ffversion;
             version = ffversion;
             name = "firefox-nightly-unwrapped-${ffversion}";
-            src = gecko-dev;
+            src = mozilla-firefox;
             patches = [
               ./include-prenv-before-system-dir.patch
             ]

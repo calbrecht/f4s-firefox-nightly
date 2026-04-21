@@ -1,5 +1,5 @@
 # f4s-firefox-nightly
-Nix flake for Firefox nightly from github:mozilla/gecko-dev source mirror
+Nix flake for Firefox nightly from github:mozilla-firefox/firefox source mirror
 
 Experimental! Expect it not to build, although it does probably.
 

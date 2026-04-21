@@ -1,5 +1,5 @@
 {
-  description = "Match mozilla-central hg revisions with gecko-dev git revisions.";
+  description = "Match mozilla-central hg revisions with mozilla-firefox git revisions.";
 
   outputs = { self, nixpkgs }:
     let
@@ -70,7 +70,7 @@
 
           : Fetching latest commits from github.
           ${pkgs.curl}/bin/curl -s -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/mozilla/gecko-dev/commits?per_page=100" | \
+            "https://api.github.com/repos/mozilla-firefox/firefox/commits?per_page=100" | \
             ${pkgs.jq}/bin/jq '${jq_extract_from_github}'
         '';
 
@@ -115,7 +115,7 @@
             exit 0
           }
 
-          sed -i 's/\(gecko-dev\)\/.*;/\1\/'$git_rev';/' flake.nix
+          sed -i 's/\(mozilla-firefox\)\/.*;/\1\/'$git_rev'";/' flake.nix
           sed -i 's/\(ffversion =\) ".*"/\1 "'$version'"/' flake.nix
 
           ${pkgs.nixFlakes}/bin/nix flake update
