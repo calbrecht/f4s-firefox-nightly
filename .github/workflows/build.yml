@@ -10,15 +10,8 @@ jobs:
       git_user_name: github-actions
       git_user_mail: github-actions@github.com
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
       with:
-        # Nix Flakes doesn't work on shallow clones
-        fetch-depth: 0
-        repository: calbrecht/f4s-firefox-nightly
-        ref: main
-    - uses: cachix/install-nix-action@v14
-      with:
-        install_url: https://github.com/numtide/nix-flakes-installer/releases/download/nix-2.5pre20211015_130284b/install
-        extra_nix_config: |
-          experimental-features = nix-command flakes
+        fetch-tags: true
+    - uses: cachix/install-nix-action@v31
     - run: nix run .github#build-firefox-wayland-nightly
