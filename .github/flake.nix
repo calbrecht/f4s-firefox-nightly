@@ -34,17 +34,8 @@
         }]
       '';
 
-      # TODO there are same commits with different parents. for now just take the first one
       jq_git_rev = ''
-        [
-          (.[0].desc | rtrimstr("\n")) as $desc |
-          (.[0].date[0] | gmtime | strftime("%Y-%m-%dT%H:%M:%SZ")) as $date |
-          .[1][] | select(.desc == $desc and .date == $date) |
-          .sha
-        ] |
-          if length > 1 then debug else . end |
-          .[0] |
-          if type == "null" then error("empty") else . end
+        .git_commit | if type == "null" then error("empty") else . end
       '';
 
       jq_to_declare = ''
@@ -79,7 +70,7 @@
           set -xeu
 
           : Fetching changeset $1 from mozilla-central.
-          ${pkgs.curl}/bin/curl -s "https://hg.mozilla.org/mozilla-central/json-rev/$1"
+          ${pkgs.curl}/bin/curl -L -s "https://hg.mozilla.org/mozilla-central/json-rev/$1"
         '';
 
         build-release-info = pkgs.writeScriptBin "build-release-info" ''
@@ -99,9 +90,8 @@
           }
 
           : Matching $hg_rev to git revision.
-          git_rev=$(${pkgs.jq}/bin/jq --slurp --raw-output '${jq_git_rev}' \
-            <(${self.packages."${system}".fetch-changeset}/bin/fetch-changeset $hg_rev) \
-            <(${self.packages."${system}".fetch-github}/bin/fetch-github))
+          git_rev=$(${pkgs.jq}/bin/jq --raw-output '${jq_git_rev}' \
+            <(${self.packages."${system}".fetch-changeset}/bin/fetch-changeset $hg_rev))
 
           export version hg_rev git_rev
         '';
@@ -115,7 +105,7 @@
             exit 0
           }
 
-          sed -i 's/\(mozilla-firefox\)\/.*;/\1\/'$git_rev'";/' flake.nix
+          sed -i 's/\(mozilla-firefox\/firefox\)\/.*;/\1\/'$git_rev'";/' flake.nix
           sed -i 's/\(ffversion =\) ".*"/\1 "'$version'"/' flake.nix
 
           ${pkgs.nixFlakes}/bin/nix flake update
