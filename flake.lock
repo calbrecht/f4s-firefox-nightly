@@ -1,18 +1,19 @@
 {
   "nodes": {
-    "gecko-dev": {
+    "mozilla-firefox": {
       "flake": false,
       "locked": {
-        "lastModified": 1743898571,
-        "narHash": "sha256-jgiBnEIBl7wkk7ZzF9H3vgoL6/fQ6m0YfAv7aTLxPRg=",
-        "owner": "mozilla",
-        "repo": "gecko-dev",
-        "rev": "380b8fd795e7d96d8a5a3e6ec2b50a9f2b65854a",
+        "lastModified": 1777010800,
+        "narHash": "sha256-RNUUp++l5O8NVmZjxV1fPnb8oda1uNU4R9beCBY1vs8=",
+        "owner": "mozilla-firefox",
+        "repo": "firefox",
+        "rev": "6206691149798396d60b52c5b0844b64025cdf0a",
         "type": "github"
       },
       "original": {
-        "owner": "mozilla",
-        "repo": "gecko-dev",
+        "owner": "mozilla-firefox",
+        "repo": "firefox",
+        "rev": "6206691149798396d60b52c5b0844b64025cdf0a",
         "type": "github"
       }
     },
@@ -46,8 +47,9 @@
         "type": "github"
       },
       "original": {
-        "id": "f4s-nspr",
-        "type": "indirect"
+        "owner": "calbrecht",
+        "repo": "f4s-nspr",
+        "type": "github"
       }
     },
     "nspr-dev-src": {
@@ -78,8 +80,9 @@
         "type": "github"
       },
       "original": {
-        "id": "f4s-nss",
-        "type": "indirect"
+        "owner": "calbrecht",
+        "repo": "f4s-nss",
+        "type": "github"
       }
     },
     "nss-dev-src": {
@@ -101,7 +104,7 @@
     },
     "root": {
       "inputs": {
-        "gecko-dev": "gecko-dev",
+        "mozilla-firefox": "mozilla-firefox",
         "nixpkgs": "nixpkgs",
         "nspr-dev": "nspr-dev",
         "nss-dev": "nss-dev"
