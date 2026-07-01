@@ -3,7 +3,7 @@
 
   inputs = {
     mozilla-firefox = {
-      url = "github:mozilla-firefox/firefox/42a764fc9d5906055abe59ddf394547745625510";
+      url = "github:mozilla-firefox/firefox/73c9f54454133a705eaceec1a43be995540e3ab4";
       flake = false;
     };
     nss-dev = {
@@ -18,7 +18,7 @@
 
   outputs = { self, nixpkgs, mozilla-firefox, nss-dev, nspr-dev }:
     let
-      ffversion = "154.0a1-20260630215321";
+      ffversion = "154.0a1-20260701092714";
 
       system = "x86_64-linux";
 
