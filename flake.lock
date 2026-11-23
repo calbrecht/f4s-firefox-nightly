@@ -3,17 +3,17 @@
     "mozilla-firefox": {
       "flake": false,
       "locked": {
-        "lastModified": 1795375667,
-        "narHash": "sha256-JVqxeDEUHvpRR5w8fPTidRLCuoQRraYf0/Ybc3FDq38=",
+        "lastModified": 1795411030,
+        "narHash": "sha256-RNOnHJEgVRfBOeDcbkC3LNyNE/pDYLCeRtKP13szSZw=",
         "owner": "mozilla-firefox",
         "repo": "firefox",
-        "rev": "e27b32bb75ad036200712c983ed5f2c28d069def",
+        "rev": "e247d45ca363cc31111a77163acb0056a4ae5afa",
         "type": "github"
       },
       "original": {
         "owner": "mozilla-firefox",
         "repo": "firefox",
-        "rev": "e27b32bb75ad036200712c983ed5f2c28d069def",
+        "rev": "e247d45ca363cc31111a77163acb0056a4ae5afa",
         "type": "github"
       }
     },
